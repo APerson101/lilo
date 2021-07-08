@@ -1,0 +1,92 @@
+name: lilo
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  sized_context: ^1.0.0-nullsafety
+  styled_widget: ^0.3.1
+  firebase_core: "^1.2.0"
+  firebase_auth: "^1.2.0"
+  cloud_functions: "^1.1.1"
+  flip_card: ^0.5.0
+  flutter_svg: ^0.22.0
+  flutter_bloc: ^7.0.1
+  shared_preferences: ^2.0.6
+  time: ^2.0.0
+  provider: ^5.0.0
+  equatable: ^2.0.2
+  http: ^0.13.3
+  random_string: ^2.2.0-nullsafety
+  crypto: ^3.0.1
+  convert: ^3.0.0
+  universal_io: ^2.0.4
+  dio: ^4.0.0
+  pretty_json: ^2.0.0
+  faker: ^2.0.0 
+  get: ^4.1.4
+  firebase_messaging: ^10.0.2
+  firebase_messaging_web: ^2.0.2
+  firebase_core_web: ^1.1.0
+  flutter_form_builder: ^6.0.1
+  email_validator: ^2.0.1
+  uuid: ^3.0.4
+  getwidget: ^2.0.2
+  group_button: ^2.2.2
+  currency_picker: ^2.0.3
+  group_radio_button: ^1.1.0
+  google_fonts: ^2.1.0
+  country_list_pick: ^1.0.1+4
+  flutter_credit_card: ^2.0.0
+  flutter_image: ^4.0.1
+  speech_to_text: ^4.2.1
+  flutter_webview_plugin: ^0.4.0
+  syncfusion_flutter_charts: ^19.2.46
+  url_launcher: ^6.0.9
+
+
+
+
+
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
