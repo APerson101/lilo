@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class ApiController {
   ApiController() {
-    _firebaseFunctions.useFunctionsEmulator(origin: 'http://localhost:5001');
+    // _firebaseFunctions.useFunctionsEmulator(origin: 'http://localhost:5001');
   }
   FirebaseFunctions _firebaseFunctions = FirebaseFunctions.instance;
   callFunction({dynamic body, dynamic params, required String function}) async {
