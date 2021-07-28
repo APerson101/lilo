@@ -5,4 +5,4 @@ It has 2 types of users: Personal and Family.
 Family enables the family head to limit spendings on other family members and can view report of each member's finance. It also enables the family head to send them money and monitor their activity. The family member can only request for money from the family head.
 Users can buy giftcards, send money, buy things online using the credit card. create custom subscriptions, add/remove new contacts.
 
-![alt text](https://drive.google.com/file/d/1QBKo8V_d3STIYk6O25GSlECJjXoAOnhL/view)
+![preview](https://drive.google.com/file/d/1QBKo8V_d3STIYk6O25GSlECJjXoAOnhL/view)
