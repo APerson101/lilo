@@ -49,7 +49,7 @@ class LoginForm extends StatelessWidget {
           ElevatedButton(
               onPressed: () {
                 var og = "ariel-jerde@ohara.biz";
-                var trial = "grimes_elwyn@waters.name";
+                var trial = "reynolds-henry@rippin.biz";
                 _landingController.login(email: trial, password: "000000");
               },
               child: Text("personal Login")),

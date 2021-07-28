@@ -21,7 +21,7 @@ class APIHandler {
   final String _getMethod = 'get';
   final String baseURL = 'https://sandboxapi.rapyd.net';
   APIHandler() {
-    // _firebaseFunctions.useFunctionsEmulator(origin: 'http://localhost:5001');
+    _firebaseFunctions.useFunctionsEmulator(origin: 'http://localhost:5001');
   }
   FirebaseFunctions _firebaseFunctions = FirebaseFunctions.instance;
   FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

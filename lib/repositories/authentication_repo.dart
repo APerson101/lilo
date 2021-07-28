@@ -7,7 +7,7 @@ import 'package:lilo/views/welcome/personalSignUp.dart';
 
 class AuthenticationRepository {
   AuthenticationRepository(this.auth) {
-    // auth.useEmulator('http://localhost:9099');
+    auth.useEmulator('http://localhost:9099');
   }
 
   // AuthenticationRepository();

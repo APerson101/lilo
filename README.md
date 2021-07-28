@@ -1,16 +1,5 @@
 # lilo
 
-A new Flutter project.
+This a fintech web app that enables users to send money to people in various parts of the world. Entered into the Rapyd API hackathon. It has 2 types of users: Personal and Family. Family enables the family head to limit spendings on other family members and can view report of each member's finance. It also enables the family head to send them money and monitor their activity. The family member can only request for money from the family head. Users can buy giftcards, send money, buy things online using the credit card. create custom subscriptions, add/remove new contacts.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![preview][/Users/abdulhadihashim/Desktop/lilo/lilo/preview.gif]

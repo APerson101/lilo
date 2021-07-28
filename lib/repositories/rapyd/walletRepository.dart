@@ -39,8 +39,8 @@ class WalletRepository extends APIHandler {
   List<Transaction> pendingtransactions = [];
 
   WalletRepository() {
-    // _firebaseFunctions.useFunctionsEmulator(origin: 'http://localhost:5001');
-    // _firebaseAuth.useEmulator('http://localhost:9099');
+    _firebaseFunctions.useFunctionsEmulator(origin: 'http://localhost:5001');
+    _firebaseAuth.useEmulator('http://localhost:9099');
   }
 
   acceptDeclineCancelMoney(
