@@ -32,6 +32,7 @@ dependencies:
   flutter_svg: ^0.22.0
   flutter_bloc: ^7.0.1
   shared_preferences: ^2.0.6
+  google_fonts: ^2.1.0
   time: ^2.0.0
   provider: ^5.0.0
   equatable: ^2.0.2
@@ -54,7 +55,6 @@ dependencies:
   group_button: ^2.2.2
   currency_picker: ^2.0.3
   group_radio_button: ^1.1.0
-  google_fonts: ^2.1.0
   country_list_pick: ^1.0.1+4
   flutter_credit_card: ^2.0.0
   flutter_image: ^4.0.1

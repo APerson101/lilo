@@ -13,8 +13,9 @@ class NotiificationsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _notification(
-        Icons.ac_unit, Colors.amber, 7, "new notification", "pending requests");
+    return _notification(Icons.ac_unit, Colors.amber, 7, "new notification",
+            "pending requests")
+        .padding(left: 15, right: 15);
     // print(controller.pendingRequests.length);
     // print(controller.pendingTransfers.length);
     // return Obx(() {
@@ -37,7 +38,7 @@ class NotiificationsView extends StatelessWidget {
     // );
   }
 
-  _notification(
+  Widget _notification(
       IconData icon, Color color, int count, String title, String description) {
     final Widget notificationIcon = Icon(icon, size: 20, color: Colors.white)
         .padding(all: 12)

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/components/carousel/gf_carousel.dart';
 import 'package:lilo/models/wallet.dart';
 import 'package:lilo/views/dashboard/dashboardController.dart';
 import 'package:lilo/views/dashboard/dashboardRepository.dart';
@@ -13,8 +14,14 @@ class AccountSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      Expanded(child: NotiificationsView()),
-      Expanded(child: AccountDetails())
+      Expanded(child: NotiificationsView())
+          .decorated(
+              color: Get.theme.backgroundColor,
+              borderRadius: BorderRadius.circular(25))
+          .padding(right: 25),
+      Expanded(child: AccountDetails()).decorated(
+          color: Get.theme.backgroundColor,
+          borderRadius: BorderRadius.circular(25))
     ]);
   }
 
@@ -34,44 +41,40 @@ class AccountDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Account> ccs = dashcontroller.allAccounts;
     return Obx(() {
-      return SizedBox(
-        width: 200,
-        height: 200,
-        child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: ccs.length,
-            itemBuilder: (buildcontext, index) {
-              Account current = ccs[index];
-              return Container(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: [Text("${current.currency}")],
-                      ),
-                      Row(
-                        children: [
-                          Text("${current.balance}",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white))
-                        ],
-                      ),
-                      Row(
-                        children: [Text("US Dollars")],
-                      )
-                    ]),
-              )
-                  // .constrained(width: 75, height: 100)
-                  .ripple()
-                  .clipRRect(all: 25)
-                  .decorated(
-                      borderRadius: BorderRadius.circular(9),
-                      color: Colors.purple.shade300);
-            }),
-      );
+      List<Account> ccs = dashcontroller.allAccounts;
+      List<Widget> accItems = [];
+      for (var item in ccs) {
+        var thing = Container(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Text("${item.currency}"),
+                    SizedBox(width: 4),
+                    Text("${item.balance}",
+                        style: TextStyle(fontSize: 16, color: Colors.white))
+                  ],
+                ),
+                Row(
+                  children: [Text("US Dollars")],
+                )
+              ]),
+        ).ripple().clipRRect(all: 25).decorated(
+            borderRadius: BorderRadius.circular(9),
+            color: Colors.purple.shade300);
+        accItems.add(thing);
+      }
+      return Expanded(
+        child: GFCarousel(
+          items: accItems,
+          viewportFraction: 1.0,
+          // height: 100,
+          // aspectRatio: 1,
+        ),
+      ).constrained(height: 110, width: 330);
     });
   }
 }

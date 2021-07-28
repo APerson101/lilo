@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import 'cardsController.dart';
@@ -25,7 +26,26 @@ class CardsView extends StatelessWidget {
   }
 
   yourCards() {
-    return Container(child: cardsCarousal());
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Your Cards',
+            style: GoogleFonts.roboto(
+              textStyle: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1,
+                  wordSpacing: 1),
+            )).padding(left: 35),
+
+        // Expanded(child:
+        cardsCarousal()
+        // ),
+      ],
+    ).decorated(
+        color: Get.theme.backgroundColor,
+        borderRadius: BorderRadius.circular(20));
   }
 
   cardsCarousal() {
@@ -33,7 +53,12 @@ class CardsView extends StatelessWidget {
     if (cardsItems == null)
       return Container(child: Center(child: Text("no cards ")));
 
-    return GFCarousel(items: cardsItems);
+    return GFCarousel(
+      items: cardsItems,
+      viewportFraction: 1.0,
+      height: 185,
+      aspectRatio: 1.8,
+    );
   }
 
   cardsView() {
@@ -49,10 +74,10 @@ class CardsView extends StatelessWidget {
           card.card_number,
           card.cvv,
           card.expiration_month,
+          card.expiration_year,
           (card.ewallet_contact.first_name! +
               ' ' +
-              card.ewallet_contact.last_name!),
-          card.expiration_year);
+              card.ewallet_contact.last_name!));
       cardsWidget.add(currentcard);
     }
     return cardsWidget;
@@ -65,13 +90,14 @@ class CardsView extends StatelessWidget {
   Widget cardView(
       String card_number, String cvv, String month, String year, String name) {
     return FlipCard(
-        front: _cardFront(name, card_number, month, year), back: _cardBack());
+        front: _cardFront(name, card_number, month, year),
+        back: _cardBack(cvv));
   }
 
   _cardFront(String name, String card_number, String month, String year) {
     Widget frontCard = Container(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _nameCardType(name, ""),
@@ -88,12 +114,12 @@ class CardsView extends StatelessWidget {
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [Color(0xfff953c6), Color(0xffb91d73)]));
+                colors: [Color(0xff32a5cf), Color(0xff00d4ff)]));
     return frontCard;
   }
 
-  _cardBack() {
-    Widget backCard = Container(child: _cardbackdetails())
+  _cardBack(String cvv) {
+    Widget backCard = Container(child: _cardbackdetails(cvv))
         .constrained(width: 320, height: 185)
         .clipRRect(all: 25)
         .ripple()
@@ -102,51 +128,75 @@ class CardsView extends StatelessWidget {
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [Color(0xfff953c6), Color(0xffb91d73)]));
+                colors: [Color(0xff32a5cf), Color(0xff00d4ff)]));
 
     return backCard;
   }
 
-  _cardbackdetails() {
-    return Column(children: [
-      Expanded(child: Container(color: Colors.black)),
-      Expanded(
-          child: Row(
-        children: [
-          Expanded(flex: 3, child: Container(color: Colors.grey)),
-          Expanded(
-              child: Container(
-            child: Text('234'),
-          )),
-        ],
-      )),
-      Expanded(
+  _cardbackdetails(String cvv) {
+    return Center(
+      child: Expanded(
           child: Container(
-        color: Colors.white,
+        child: Text('CVV: $cvv',
+            style: GoogleFonts.roboto(
+              textStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.5,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 2,
+                  wordSpacing: 2.3),
+            )),
       )),
-    ]);
+    );
   }
 
   _nameCardType(String name, String type) {
     return Row(
       children: [
-        Text(name),
-        Expanded(child: Container()),
-        Text('Shopping'),
+        Text(name,
+            style: GoogleFonts.roboto(
+              textStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.5,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 1.4,
+                  wordSpacing: 2.3),
+            ))
       ],
-    ).padding(left: 10, right: 10);
+    ).padding(top: 20, left: 20);
   }
 
   _cardNumber(String card_number) {
-    return Text(card_number);
-  }
+    String firstset = card_number.substring(0, 4);
+    String secondset = card_number.substring(4, 8);
+    String thirdset = card_number.substring(8, 12);
+    String lastset = card_number.substring(12, 16);
+    String newString =
+        firstset + " " + secondset + " " + thirdset + " " + lastset;
 
-  balance(String balance) {
-    return Text('\$ $balance');
+    return Row(
+      children: [
+        Text(newString,
+            style: GoogleFonts.roboto(
+                textStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 2.5,
+                    wordSpacing: 23)))
+      ],
+    ).padding(left: 20, right: 20);
   }
 
   myear(String monthYear) {
-    return Text(monthYear);
+    return Text(monthYear,
+        style: GoogleFonts.roboto(
+            textStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                letterSpacing: 2.5,
+                wordSpacing: 6)));
   }
 
   mlogo() {
@@ -156,8 +206,8 @@ class CardsView extends StatelessWidget {
 
   lastRow(String month, String year) {
     return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [balance('8000'), myear('$month/$year'), mlogo()]);
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [myear('Exp: $month/$year'), mlogo()])
+        .padding(bottom: 10, left: 20, right: 20);
   }
 }

@@ -41,10 +41,10 @@ class DashboardView extends StatelessWidget {
   rightStack(double width, context, double height) {
     return Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       Expanded(
-        flex: 40,
+        flex: 65,
         child: CardsView()
             .decorated(
-                color: Colors.blue[600],
+                // color: Colors.blue[600],
                 borderRadius: BorderRadius.circular(25))
             .padding(bottom: 25),
       ),
@@ -52,32 +52,31 @@ class DashboardView extends StatelessWidget {
           flex: 120,
           child: Container(
               child: Column(children: [
-            Expanded(
-              child: Container(
-                      child: Center(
-                child: UpcomingPayments(),
-              ))
-                  .decorated(
-                      color: Colors.blueGrey,
-                      borderRadius: BorderRadius.circular(25))
-                  .padding(bottom: 25),
-            ),
+            // Expanded(
+            //   child: Container(
+            //           child: Center(
+            //     child: UpcomingPayments(),
+            //   ))
+            //       .decorated(
+            //           // color: Colors.blueGrey,
+            //           borderRadius: BorderRadius.circular(25))
+            //       .padding(bottom: 25),
+            // ),
             Expanded(
               child: SendMoney(),
             ),
             // Expanded(
             //     child: ButtonBar(
             //   children: [
-            ElevatedButton(
-                onPressed: () => controller.setFamilyLimit(),
-                child: Text('set limit'))
+            // ElevatedButton(
+            //     onPressed: () => controller.setFamilyLimit(),
+            //     child: Text('set limit'))
             //   ],
             // ))
             // .decorated(
             // color: Colors.blueGrey,
             // borderRadius: BorderRadius.circular(25)),
-          ])).decorated(
-              color: Colors.blueGrey, borderRadius: BorderRadius.circular(25))),
+          ])).decorated(borderRadius: BorderRadius.circular(25))),
     ]).positioned(right: 0, left: width, top: 0, bottom: 0);
   }
 
@@ -87,17 +86,19 @@ class DashboardView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
-          flex: 40,
+          flex: 60,
           child: buttons(trialWidthLeft),
         ),
-        Expanded(flex: 60, child: AccountSummary())
-            .decorated(
-                color: Colors.teal, borderRadius: BorderRadius.circular(25))
-            .padding(bottom: 25),
+        Expanded(flex: 30, child: AccountSummary())
+            .padding(bottom: 25, left: 10),
         Expanded(
-          flex: 60,
+          flex: 120,
           child: AnalyzerDashboard(),
-        ).decorated(color: Colors.grey, borderRadius: BorderRadius.circular(25))
+        )
+            .decorated(
+                color: Get.theme.backgroundColor,
+                borderRadius: BorderRadius.circular(25))
+            .padding(left: 10)
       ],
     ).paddingOnly(right: 10, left: 15).positioned(
         // right: rightOffset,
@@ -111,7 +112,7 @@ class DashboardView extends StatelessWidget {
     return Container(
       child: Expanded(child: Buttons())
           .decorated(borderRadius: BorderRadius.circular(25))
-          .padding(bottom: 25),
+          .padding(bottom: 15),
     );
   }
 

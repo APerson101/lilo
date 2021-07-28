@@ -3,6 +3,7 @@ import 'package:currency_picker/currency_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:group_button/group_button.dart';
 import 'package:group_radio_button/group_radio_button.dart';
 import 'package:lilo/controllers/speechController.dart';
@@ -28,9 +29,8 @@ class Buttons extends StatelessWidget {
   Widget build(BuildContext context) {
     return _icons()
         .decorated(
-            color: Colors.lightBlue.shade50,
-            // )
-            borderRadius: BorderRadius.circular(25))
+            color: Get.theme.backgroundColor,
+            borderRadius: BorderRadius.circular(20))
         .padding(left: 10);
   }
 
@@ -70,10 +70,13 @@ class Buttons extends StatelessWidget {
 
     final Widget actionText = Text(
       name,
-      style: TextStyle(
-          color: Colors.black.withOpacity(0.8),
-          fontSize: 13,
-          fontWeight: FontWeight.bold),
+      style: GoogleFonts.roboto(
+        textStyle: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            letterSpacing: 1,
+            wordSpacing: 1),
+      ),
     );
 
     return <Widget>[

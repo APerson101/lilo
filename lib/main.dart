@@ -47,6 +47,7 @@ void main() async {
   // final Appmodel appmodel =
   // Appmodel(messaging: messaging, userRepository: userRepository);
   runApp(GetMaterialApp(
+    debugShowCheckedModeBanner: false,
     theme: ThemeData.dark(),
     getPages: GetPages().getPages(),
     initialRoute: '/',

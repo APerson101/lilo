@@ -31,7 +31,9 @@ class SendMoney extends StatelessWidget {
           () => bodyDecider(),
         ),
       ],
-    ));
+    )).decorated(
+        color: Get.theme.backgroundColor,
+        borderRadius: BorderRadius.circular(20));
   }
 
   _transferSource() {
